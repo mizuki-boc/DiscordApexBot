@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import discord
 
 # 接続に必要なオブジェクトを生成
