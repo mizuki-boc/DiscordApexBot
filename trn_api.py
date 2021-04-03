@@ -37,5 +37,10 @@ def get_rp(user_name):
     res = json.loads(req.text)
 
     rank_value = res["data"]["segments"][0]["stats"]["rankScore"]["value"]
+    rank_name = res["data"]["segments"][0]["stats"]["rankScore"]["metadata"]["rankName"]
+    print("ユーザ名: ", user_name)
+    print("ランク: " + rank_name + " (", rank_value,  ")")
 
-    return rank_value
+    ans = "ランク: " + rank_name + " (", rank_value,  ")"
+
+    return ans
