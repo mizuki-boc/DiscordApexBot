@@ -2,6 +2,8 @@
 import discord
 import os
 
+import trn_api
+
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
 
@@ -20,6 +22,8 @@ async def on_message(message):
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
         await message.channel.send('にゃーん')
+    if message.content == '/rp':
+        await message.channel.send(trn_api.get_rp(user_name='m1zThePredator'))
 
 # Botの起動とDiscordサーバーへの接続
 client.run(os.environ['DISCORD_TOKEN'])
