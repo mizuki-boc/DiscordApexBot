@@ -6,6 +6,7 @@ import trn_api
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
+DISCORD_TOKEN = 'ODI3OTU0MTIwNzU3NDc3NDQ5.YGiiXQ.K4s-pYexgBWGYG1qeR9lqL7Pf_s'
 
 # 起動時に動作する処理
 @client.event
@@ -26,4 +27,5 @@ async def on_message(message):
         await message.channel.send(trn_api.get_rp(user_name='m1zThePredator'))
 
 # Botの起動とDiscordサーバーへの接続
-client.run(os.environ['DISCORD_TOKEN'])
+# client.run(os.environ['DISCORD_TOKEN'])
+client.run(DISCORD_TOKEN)
