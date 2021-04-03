@@ -20,9 +20,8 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == '/neko':
-        await message.channel.send('にゃーん')
+    if message.content == '/hello':
+        await message.channel.send('こんにちは！')
     if message.content == '/rp':
         await message.channel.send(trn_api.get_rp(user_name='m1zThePredator'))
 
