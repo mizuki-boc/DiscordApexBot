@@ -5,8 +5,6 @@ import os
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
 
-
-
 # 起動時に動作する処理
 @client.event
 async def on_ready():
@@ -24,5 +22,4 @@ async def on_message(message):
         await message.channel.send('にゃーん')
 
 # Botの起動とDiscordサーバーへの接続
-# client.run(DISCORD_TOKEN)
 client.run(os.environ['DISCORD_TOKEN'])
