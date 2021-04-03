@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-import discord
 import os
+
+import discord
 
 import trn_api
 
@@ -27,4 +28,3 @@ async def on_message(message):
 
 # Botの起動とDiscordサーバーへの接続
 client.run(os.environ['DISCORD_TOKEN'])
-# client.run(DISCORD_TOKEN)
