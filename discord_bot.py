@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import discord
+import os
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -21,4 +22,4 @@ async def on_message(message):
         await message.channel.send('にゃーん')
 
 # Botの起動とDiscordサーバーへの接続
-client.run(env['DISCORD_TOKEN'])
+client.run(os.environ['DISCORD_TOKEN'])
