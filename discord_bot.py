@@ -17,11 +17,11 @@ async def on_ready():
 # メッセージ受信時に動作する処理
 @client.event
 async def on_message(message):
+    use_api = trn_api.UseApi(user_name='m1zThePredator')
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
     if message.content == '/hello':
-        use_api = trn_api.UseApi(user_name='m1zThePredator')
         await message.channel.send('こんにちは！')
     if message.content == '/rp':
         await message.channel.send(use_api.get_rp())
