@@ -21,4 +21,4 @@ def get_rp(user_name):
 
     ans = "ランク: " + rank_name + " (", rank_value,  ")"
 
-    return ans
+    return rank_name
