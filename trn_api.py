@@ -44,3 +44,6 @@ class UseApi:
     def get_rank(self):
         self.rank = self.res["data"]["segments"][0]["stats"]["rankScore"]["metadata"]["rankName"]
         return self.rank
+
+if __name__ == '__main__':
+    a = UseApi(user_name='m1zThePredator')
