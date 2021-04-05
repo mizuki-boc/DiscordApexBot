@@ -30,11 +30,11 @@ async def on_message(message):
     if message.content == '/stats':
         ans = '''
         name: {user_name}
-        rank: {rank}
-        point: {rp}
+    rank: {rank}
+    point: {rp}
         '''.format(user_name=use_api.user_name,
-                    rank=use_api.get_rank,
-                    rp=use_api.get_rp)
+                    rank=use_api.get_rank(),
+                    rp=use_api.get_rp())
         await message.channel.send(ans)
 
 def init_use_api_class(user_name):
