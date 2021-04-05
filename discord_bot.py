@@ -27,6 +27,8 @@ async def on_message(message):
         await message.channel.send(use_api.get_rp())
     if message.content == '/rank':
         await message.channel.send(use_api.get_rank())
+    if message.content == '/stats':
+        await message.channel.send('こんちわ')
 
 def init_use_api_class(user_name):
     use_api = trn_api.UseApi(user_name='m1zThePredator')
