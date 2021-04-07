@@ -24,6 +24,10 @@ import os
 #     return rank_name
 
 class UseApi:
+    '''
+    TRNのApexApiを叩くクラス。
+    ユーザーネームを一つ引数にとり、各情報を取得する。
+    '''
     def __init__(self, user_name):
         self.user_name = user_name
         # ここでApiたたく
