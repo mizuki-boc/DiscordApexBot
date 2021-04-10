@@ -21,5 +21,5 @@ point: {rp}
                     rp=use_api.get_rp())
     if command == '/test':
         return 'testmessage'
-    if command == '/rp':
+
         
