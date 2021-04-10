@@ -49,5 +49,21 @@ class UseApi:
         self.rank = self.res["data"]["segments"][0]["stats"]["rankScore"]["metadata"]["rankName"]
         return self.rank
 
+    def get_result(self, command):
+        if command == '/test':
+            return 'test_message'
+        if command == '/rp':
+            return self.get_rp()
+        if command == '/rank':
+            return get_rank()
+        if command == '/stats':
+            return '''\
+name: {user_name}
+rank: {rank}
+point: {rp}
+            '''.format(user_name=self.user_name,
+                        rank=self.get_rank(),
+                        rp=self.get_rp())
+
 if __name__ == '__main__':
     a = UseApi(user_name='m1zThePredator')
