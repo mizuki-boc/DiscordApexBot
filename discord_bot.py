@@ -22,21 +22,6 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-#     if message.content == '/hello':
-#         await message.channel.send('こんにちは！')
-#     if message.content == '/rp':
-#         await message.channel.send(use_api.get_rp())
-#     if message.content == '/rank':
-#         await message.channel.send(use_api.get_rank())
-#     if message.content == '/stats':
-#         ans = '''\
-# name: {user_name}
-# rank: {rank}
-# point: {rp}
-#         '''.format(user_name=use_api.user_name,
-#                     rank=use_api.get_rank(),
-#                     rp=use_api.get_rp())
-#         await message.channel.send(ans)
     await message.channel.send(trn_api.get_result(message.content))
 
 # Botの起動とDiscordサーバーへの接続
