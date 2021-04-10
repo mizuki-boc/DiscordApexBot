@@ -3,8 +3,7 @@ import os
 
 import discord
 
-import bot_command
-# import trn_api
+import trn_api
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
