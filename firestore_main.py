@@ -29,6 +29,13 @@ def set_rp(user_name, rp):
     })
     return '書き込みました'
 
+def get_recent_5():
+    db = firestore.client()
+    # print(db.collection('m1zThePredator').order_by('registerd_at').limit(5).stream())
+    for doc in db.collection('m1zThePredator').order_by('registerd_at', direction=firestore.Query.DESCENDING).limit(5).stream():
+        print(doc.to_dict())
+
 if __name__ == '__main__':
     # select_db_from_firestore()
-    set_rp(user_name='m1zThePredator', rp=100)
+    # set_rp(user_name='m1zThePredator', rp=100)
+    get_recent_5()

@@ -3,7 +3,7 @@ import requests
 import json
 import os
 
-import firestore_main
+
 
 class UseApi:
     '''
@@ -49,6 +49,7 @@ def get_result(command, user_name):
         use_api = UseApi(user_name=user_name)
         return use_api.get_rank()
     if command == '/stats':
+        import firestore_main
         use_api = UseApi(user_name=user_name)
         firestore_main.set_rp(user_name=user_name, rp=use_api.get_rp())
         return '''\
