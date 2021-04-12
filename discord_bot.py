@@ -20,7 +20,7 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    await message.channel.send(trn_api.get_result(message.content))
+    await message.channel.send(trn_api.get_result(command=message.content, user_name='m1zThePredator'))
 
 # Botの起動とDiscordサーバーへの接続
 client.run(os.environ['DISCORD_TOKEN'])
