@@ -58,6 +58,6 @@ point: {rp}
     if  command == '/test':
         # ここでdbさわってみる
         import firestore_main
-        return firestore_main.select_db_from_firestore()
+        return firestore_main.set_rp(user_name=user_name, rp=use_api.get_rp())
 
 

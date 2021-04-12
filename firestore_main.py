@@ -20,5 +20,14 @@ def select_db_from_firestore():
         # print(doc.to_dict()['rp'])
     return f'{doc.id} => {doc.to_dict()}'
 
+def set_rp(user_name, rp):
+    db = firestore.client()
+    doc_ref = db.collection(user_name).document()
+    doc_ref.set({
+        'rp': rp,
+        'registerd_at': firestore.SERVER_TIMESTAMP,
+    })
+
 if __name__ == '__main__':
-    select_db_from_firestore()
+    # select_db_from_firestore()
+    set_rp(user_name='m1zThePredator', rp=100)
