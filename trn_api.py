@@ -56,5 +56,8 @@ point: {rp}
                     rank=use_api.get_rank(),
                     rp=use_api.get_rp())
     if  command == '/test':
-        pass
-        
+        # ここでdbさわってみる
+        import firestore_main
+        return firestore_main.select_db_from_firestore()
+
+

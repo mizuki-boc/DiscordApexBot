@@ -1,1 +1,1 @@
-worker: python read_key.py
+worker: python discord_bot.py

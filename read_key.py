@@ -1,5 +1,11 @@
 import os
 
+try:
+    import key
+    print('ローカル環境からfirestoreに接続')
+except:
+    print('herokuからfirestoreに接続')
+
 dic = {
     "type": os.environ['fb_type'],
     "project_id": os.environ['fb_project_id'],
