@@ -55,3 +55,6 @@ point: {rp}
         '''.format(user_name=user_name,
                     rank=use_api.get_rank(),
                     rp=use_api.get_rp())
+    if  command == '/test':
+        pass
+        
