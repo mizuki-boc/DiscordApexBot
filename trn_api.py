@@ -29,21 +29,29 @@ class UseApi:
         self.rank = self.res["data"]["segments"][0]["stats"]["rankScore"]["metadata"]["rankName"]
         return self.rank
 
-    def get_result(self, command):
-        if command == '/test':
-            return 'test_message'
-        if command == '/rp':
-            return self.get_rp()
-        if command == '/rank':
-            return get_rank()
-        if command == '/stats':
-            return '''\
+def get_result(command, user_name):
+    '''
+    UseApi クラスをインスタンス化し、コマンドを受け取り、結果文字列を返す関数
+    '''
+    if command == '/ls':
+        # friendsc の結果を返す、get_result の user_name は使用しない
+        ans = ''
+        friends = ['m1zThePredator', 'megushinnn']
+        for u_name in friends:
+            ans += get_result(command='/stats', user_name=u_name) + '\n'
+        return ans
+    if command == '/rp':
+        use_api = UseApi(user_name=user_name)
+        return use_api.get_rp()
+    if command == '/rank':
+        use_api = UseApi(user_name=user_name)
+        return use_api.get_rank()
+    if command == '/stats':
+        use_api = UseApi(user_name=user_name)
+        return '''\
 name: {user_name}
 rank: {rank}
 point: {rp}
-            '''.format(user_name=self.user_name,
-                        rank=self.get_rank(),
-                        rp=self.get_rp())
-
-if __name__ == '__main__':
-    a = UseApi(user_name='m1zThePredator')
+        '''.format(user_name=user_name,
+                    rank=use_api.get_rank(),
+                    rp=use_api.get_rp())

@@ -17,11 +17,10 @@ async def on_ready():
 # メッセージ受信時に動作する処理
 @client.event
 async def on_message(message):
-    use_api = trn_api.UseApi(user_name='megushinnn')
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    await message.channel.send(use_api.get_result(message.content))
+    await message.channel.send(trn_api.get_result(message.content))
 
 # Botの起動とDiscordサーバーへの接続
 client.run(os.environ['DISCORD_TOKEN'])
