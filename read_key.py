@@ -23,3 +23,5 @@ import json
 
 with open('discordapexinfobot-firebase-adminsdk-w4ryu-f123a1595c.json', mode='wt', encoding='utf-8') as f:
     json.dump(dic, f, ensure_ascii=False, indent=2)
+
+print('read_key.py 実行完了')
