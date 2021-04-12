@@ -27,6 +27,7 @@ def set_rp(user_name, rp):
         'rp': rp,
         'registerd_at': firestore.SERVER_TIMESTAMP,
     })
+    return '書き込みました'
 
 if __name__ == '__main__':
     # select_db_from_firestore()
