@@ -4,32 +4,46 @@ discord 操作 main 関数
 '''
 import os
 import discord
+from discord.ext import commands
 
 import controller
 import command_receiver
 import trn_api
 
-# 接続に必要なオブジェクトを生成
-client = discord.Client()
+# コマンドのプレフィックス
+bot = commands.Bot(command_prefix='!')
 
 # コントローラ初期化
 db = controller.Controller()
 
-# 起動時に動作する処理
-@client.event
+@bot.event
 async def on_ready():
-    # 起動したらターミナルにログイン通知が表示される
     print('ログインしました')
 
-# メッセージ受信時に動作する処理
-@client.event
-async def on_message(message):
-    # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return
-    await message.channel.send(command_receiver.get_result(command=message.content,\
-                                                           user_name='m1zThePredator',\
-                                                           db=db))
+# 以下コマンド
+@bot.command()
+async def test(ctx, arg):
+    await ctx.channel.send(arg)
 
-# Botの起動とDiscordサーバーへの接続
-client.run(os.environ['DISCORD_TOKEN'])
+@bot.command()
+async def rp(ctx):
+    rp_dict_list = db.get_recent_5(user_name='m1zThePredator')
+    ans = ''''''
+    for d in rp_dict_list:
+        ans += str(d['rp']) + '   ' + str(d['registerd_at']) + '\n'
+    await ctx.channel.send(ans[:-2])
+
+@bot.command()
+async def ls(ctx):
+    ans = ''''''
+    friends = ['m1zThePredator', 'megushinnn']
+    for user_name in friends:
+        use_api = trn_api.UseApi(user_name=user_name)
+        category = ['name', 'rank', 'point']
+        info = [user_name, use_api.get_rank(), use_api.get_rp()]
+        for (c, i) in zip(category, info):
+            ans += c + ': ' + str(i) + '\n'
+        ans += '\n'
+    await ctx.channel.send(ans[:-2])
+
+bot.run(os.environ['DISCORD_TOKEN'])

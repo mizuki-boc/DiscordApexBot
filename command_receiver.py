@@ -1,4 +1,5 @@
 import trn_api
+import plot_rp
 
 def get_result(command, user_name, db):
     '''
@@ -21,8 +22,8 @@ def get_result(command, user_name, db):
         # ５データ取得
         rp_list = db.get_recent_5(user_name=user_name)
         ans = ''''''
-        for i in rp_list:
-            ans += str(i['rp']) + '   ' + str(i['registerd_at']) + '\n'
+        for d in rp_list:
+            ans += str(d['rp']) + '   ' + str(d['registerd_at']) + '\n'
         return ans[:-2]
     if command == '/rp_old':
         # 現在の rp のみを取得
@@ -42,6 +43,13 @@ point: {rp}
         '''.format(user_name=user_name,
                     rank=use_api.get_rank(),
                     rp=use_api.get_rp())
+    if command == '/plot':
+        rp_dict_list = db.get_recent_5(user_name=user_name)
+        # rp_list = []
+        # for d in rp_dict_list:
+        #     rp_list.append(d['rp'])
+        # print(rp_list)
+        img_path = plot_rp.plot_rp(rp_dict_list)
     if  command == '/test':
         recent_5_data = db.get_recent_5()
         print(recent_5_data[0]['rp'])
