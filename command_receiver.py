@@ -13,7 +13,7 @@ def get_result(command, user_name, db):
         ans = ''
         friends = ['m1zThePredator', 'megushinnn']
         for user_name in friends:
-            ans += get_result(command='/stats', user_name=user_name) + '\n'
+            ans += get_result(command='/stats', user_name=user_name, db=db) + '\n'
         return ans
     if command == '/rp':
         # ５データ取得
