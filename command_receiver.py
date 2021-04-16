@@ -1,3 +1,5 @@
+import use_api
+
 def get_result(command, user_name, db):
     '''
     INPUT
@@ -24,13 +26,13 @@ def get_result(command, user_name, db):
         return ans[:-2]
     if command == '/rp_old':
         # 現在の rp のみを取得
-        use_api = UseApi(user_name=user_name)
+        use_api = use_api.UseApi(user_name=user_name)
         return use_api.get_rp()
     if command == '/rank':
-        use_api = UseApi(user_name=user_name)
+        use_api = use_api.UseApi(user_name=user_name)
         return use_api.get_rank()
     if command == '/stats':
-        use_api = UseApi(user_name=user_name)
+        use_api = use_api.UseApi(user_name=user_name)
         # firestore に保存
         db.set_rp(user_name=user_name, rp=use_api.get_rp())
         return '''\

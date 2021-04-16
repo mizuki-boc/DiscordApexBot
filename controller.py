@@ -1,8 +1,8 @@
-import read_key
-
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+
+import read_key
 
 class Controller:
     def __init__(self):
