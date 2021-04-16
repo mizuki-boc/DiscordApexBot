@@ -4,7 +4,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-class DB:
+class Controller:
     def __init__(self):
         '''
         firestore接続
@@ -55,5 +55,5 @@ class DB:
     
 
 if __name__ == '__main__':
-    db = DB()
+    db = Controller()
     db.get_recent_5('m1zThePredator')
