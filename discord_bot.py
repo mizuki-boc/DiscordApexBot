@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+'''
+discord 操作 main 関数
+'''
 import os
 
 import discord
